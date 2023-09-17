@@ -1,0 +1,36 @@
+{
+	"name": "calculatormobile",
+	"displayName": "Calculator",
+	"version": "0.0.1",
+	"description": "A simple calculator",
+	"main": "index.js",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+		"clean": "rm -rf node_modules package-lock.json platforms www"
+	},
+	"keywords": [
+		"ecosystem:cordova"
+	],
+	"author": "FrancoisBasset",
+	"license": "MIT",
+	"dependencies": {
+		"pinia": "^2.1.6",
+		"vue": "^3.3.4",
+		"vue-router": "^4.2.4"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^4.3.4",
+		"cordova-android": "^10.1.2",
+		"eslint": "^8.49.0",
+		"eslint-plugin-vue": "^9.17.0",
+		"vite": "^4.4.9"
+	},
+	"cordova": {
+		"platforms": [
+			"android"
+		]
+	}
+}
