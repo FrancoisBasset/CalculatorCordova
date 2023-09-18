@@ -3,3 +3,13 @@ html, body, #app {
 	height: 100%;
 	user-select: none;
 }
+
+.green-button {
+	background-color: limegreen;
+	color: white;
+}
+
+.operator-button {
+	color: cornflowerblue;
+	font-weight: bold;
+}

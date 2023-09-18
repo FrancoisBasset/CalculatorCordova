@@ -3,36 +3,38 @@
 		<table>
 			<tr>
 				<td colspan="2" @click="$emit('keyboard-click', 'C')">C</td>
-				<td colspan="2" @click="$emit('keyboard-click', 'R')">R</td>
+				<td colspan="2" @click="$emit('keyboard-click', 'R')">
+					<img src="../assets/backspace.png" width="30" style="vertical-align: middle;" />
+				</td>
 			</tr>
 			<tr>
-				<td colspan="1.5" @click="$emit('keyboard-click', '(')">(</td>
-				<td colspan="1.5" @click="$emit('keyboard-click', ')')">)</td>
+				<td colspan="1.5" @click="$emit('keyboard-click', '(')" class="operator-button">(</td>
+				<td colspan="1.5" @click="$emit('keyboard-click', ')')" class="operator-button">)</td>
 				<td></td>
-				<td @click="$emit('keyboard-click', '-')">-</td>
+				<td @click="$emit('keyboard-click', '÷')" class="operator-button">÷</td>
 			</tr>
 			<tr>
 				<td @click="$emit('keyboard-click', '7')">7</td>
 				<td @click="$emit('keyboard-click', '8')">8</td>
 				<td @click="$emit('keyboard-click', '9')">9</td>
-				<td @click="$emit('keyboard-click', 'X')">X</td>
+				<td @click="$emit('keyboard-click', '⨉')" class="operator-button">⨉</td>
 			</tr>
 			<tr>
 				<td @click="$emit('keyboard-click', '4')">4</td>
 				<td @click="$emit('keyboard-click', '5')">5</td>
 				<td @click="$emit('keyboard-click', '6')">6</td>
-				<td @click="$emit('keyboard-click', '-')">-</td>
+				<td @click="$emit('keyboard-click', '-')" class="operator-button">-</td>
 			</tr>
 			<tr>
 				<td @click="$emit('keyboard-click', '1')">1</td>
 				<td @click="$emit('keyboard-click', '2')">2</td>
 				<td @click="$emit('keyboard-click', '3')">3</td>
-				<td @click="$emit('keyboard-click', '+')">+</td>
+				<td @click="$emit('keyboard-click', '+')" class="operator-button">+</td>
 			</tr>
 			<tr>
 				<td @click="$emit('keyboard-click', '.')">.</td>
 				<td @click="$emit('keyboard-click', '0')">0</td>
-				<td @click="$emit('keyboard-click', '=')" colspan="2">=</td>
+				<td @click="$emit('keyboard-click', '=')" class="green-button" colspan="2">=</td>
 			</tr>
 		</table>
 	</div>

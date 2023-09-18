@@ -7,18 +7,18 @@
 
 <style scoped>
 #prompt-zone {
-	height: 35%;
+	height: 30%;
 }
 
 #keyboard-zone {
-	height: 65%;
+	height: 70%;
 }
 </style>
 
 <script>
 import PromptZone from '../components/PromptZone.vue';
 import KeyboardZone from '../components/KeyboardZone.vue';
-import useCalculatorStore from '../stores/calculator';
+import Calculator from '../calculator';
 
 export default {
 	components: {
@@ -27,20 +27,58 @@ export default {
 	},
 	data() {
 		return {
-			calculator: useCalculatorStore(),
 			prompt: ''
 		};
 	},
+	computed: {
+		lastChar() {
+			if (this.prompt.length === 0) {
+				return null;
+			}
+
+			return this.prompt[this.prompt.length - 1];
+		}
+	},
 	methods: {
 		onKeyboardClick(c) {
+			const calculator = new Calculator(this.prompt);
+			let canWrite = false;
+
 			switch (c) {
-				case 'C':
-					this.prompt = '';
-					break;
-				case 'R':
-					this.prompt = this.prompt.slice(0, this.prompt.length - 1);
-					break;
-				default:
+			case 'C':
+				this.prompt = '';
+				break;
+			case 'R':
+				this.prompt = this.prompt.slice(0, this.prompt.length - 1);
+				break;
+			case '(':
+				canWrite = this.lastChar === null;
+				canWrite ||= '(+-⨉÷'.includes(this.lastChar);
+				break;
+			case ')':
+				canWrite = this.lastChar !== null;
+				canWrite &&= (!isNaN(this.lastChar) || this.lastChar === ')');
+				canWrite &&= this.prompt.includes('(');
+				break;
+			case '+':
+			case '-':
+			case '⨉':
+			case '÷':
+				canWrite = this.lastChar === ')';
+				canWrite ||= (this.lastChar !== null && !isNaN(this.lastChar));
+				break;
+			case '.':
+				canWrite = this.lastChar !== null;
+				canWrite &&= !isNaN(this.lastChar);
+				break;
+			case '=':
+				this.prompt = calculator.getResult();
+				break;
+			default:
+				canWrite = this.lastChar !== ')';
+			}
+
+			if (canWrite) {
 				this.prompt += c;
 			}
 		}
