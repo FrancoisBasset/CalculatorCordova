@@ -10,7 +10,9 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-		"clean": "rm -rf node_modules package-lock.json platforms www"
+		"clean": "rm -rf keystore node_modules package-lock.json platforms www",
+		"genkey": "keytool -genkey -keystore keystore -alias key -keyalg RSA",
+		"buildapk": "cordova build android --release -- --buildConfig --packageType=apk"
 	},
 	"keywords": [
 		"ecosystem:cordova"
