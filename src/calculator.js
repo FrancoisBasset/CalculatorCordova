@@ -32,14 +32,13 @@ export default class Calculator {
 	}
 
 	process(sub) {
-		const operands = sub.split(/[+|\-|⨉|÷]/).map(o => parseInt(o));
+		const operands = sub.split(/[+|\-|⨉|÷]/).map(o => parseFloat(o));
 		const operators = sub.split(/[\d]+/).filter(o => o !== '');
 
 		let result = operands[0];
+		operands.shift();
 
 		while (operators.length !== 0) {
-			operands.shift();
-
 			switch (operators[0]) {
 			case '+':
 				result += operands[0];

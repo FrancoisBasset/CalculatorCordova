@@ -6,7 +6,14 @@
 
 <style scoped>
 div {
+	position: relative;
 	font-size: 46px;
+}
+
+text {
+	position: absolute;
+	right: 20px;
+	top: 20px;
 }
 </style>
 
