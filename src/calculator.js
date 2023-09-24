@@ -33,7 +33,7 @@ export default class Calculator {
 
 	process(sub) {
 		for (let i = 0; i < sub.length; i++) {
-			sub = sub.replace(/([\d])([\-])([\d])/g, '$1$2 $3');
+			sub = sub.replace(/([\d])([-])([\d])/g, '$1$2 $3');
 		}
 
 		const matches = sub.match(/([-]?\d*\.?\d+)|([+\-⨉÷])/g);

@@ -1,6 +1,6 @@
 {
-	"name": "calculatormobile",
-	"displayName": "Calculator",
+	"name": "kalc",
+	"displayName": "Kalc",
 	"version": "0.0.1",
 	"description": "A simple calculator",
 	"main": "index.js",

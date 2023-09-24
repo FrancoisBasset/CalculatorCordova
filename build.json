@@ -2,9 +2,9 @@
     "android": {
         "release": {
             "keystore": "./keystore",
-            "storePassword": "calculator",
+            "storePassword": "kalckey",
             "alias": "key",
-            "password" : "calculator",
+            "password" : "kalckey",
             "keystoreType": "jks"
         }
     }
