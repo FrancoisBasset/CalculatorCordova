@@ -32,7 +32,9 @@ export default class Calculator {
 	}
 
 	process(sub) {
-		sub = sub.replace(/([\d])([\-])([\d])/g, '$1$2 $3');
+		for (let i = 0; i < sub.length; i++) {
+			sub = sub.replace(/([\d])([\-])([\d])/g, '$1$2 $3');
+		}
 
 		const matches = sub.match(/([-]?\d*\.?\d+)|([+\-⨉÷])/g);
 
@@ -44,6 +46,26 @@ export default class Calculator {
 				operators.push(match);
 			} else {
 				operands.push(parseFloat(match));
+			}
+		}
+
+		let i = 0;
+
+		while (i < operators.length) {
+			switch (operators[i]) {
+			case '⨉':
+				operands[i] = operands[i] * operands[i + 1];
+				operands.splice(i + 1, 1);
+				operators.splice(i, 1);
+				break;
+			case '÷':
+				operands[i] = operands[i] / operands[i + 1];
+				operands.splice(i + 1, 1);
+				operators.splice(i, 1);
+				break;
+			default:
+				i++;
+				break;
 			}
 		}
 

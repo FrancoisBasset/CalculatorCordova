@@ -4,7 +4,6 @@
 	"version": "0.0.1",
 	"description": "A simple calculator",
 	"main": "index.js",
-	"type": "module",
 	"scripts": {
 		"postinstall": "npm run build && cordova platform add android",
 		"dev": "vite",
