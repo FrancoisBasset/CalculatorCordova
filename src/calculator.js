@@ -32,8 +32,20 @@ export default class Calculator {
 	}
 
 	process(sub) {
-		const operands = sub.split(/[+|\-|⨉|÷]/).map(o => parseFloat(o));
-		const operators = sub.split(/[\d]+/).filter(o => o !== '');
+		sub = sub.replace(/([\d])([\-])([\d])/g, '$1$2 $3');
+
+		const matches = sub.match(/([-]?\d*\.?\d+)|([+\-⨉÷])/g);
+
+		const operands = [];
+		const operators = [];
+
+		for (const match of matches) {
+			if ('-+⨉÷'.includes(match)) {
+				operators.push(match);
+			} else {
+				operands.push(parseFloat(match));
+			}
+		}
 
 		let result = operands[0];
 		operands.shift();
@@ -54,6 +66,7 @@ export default class Calculator {
 				break;
 			}
 
+			operands.shift();
 			operators.shift();
 		}
 

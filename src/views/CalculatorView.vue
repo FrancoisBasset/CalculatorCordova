@@ -64,6 +64,10 @@ export default {
 			case '-':
 			case '⨉':
 			case '÷':
+				if (c === '-' && (this.lastChar === null || this.lastChar === '(')) {
+					canWrite = true;
+					break;
+				}
 				canWrite = this.lastChar === ')';
 				canWrite ||= (this.lastChar !== null && !isNaN(this.lastChar));
 				break;
