@@ -53,7 +53,7 @@ export default {
 				break;
 			case '(':
 				canWrite = this.lastChar === null;
-				canWrite ||= '(+-⨉÷'.includes(this.lastChar);
+				canWrite ||= '(+-×÷'.includes(this.lastChar);
 				break;
 			case ')':
 				canWrite = this.lastChar !== null;
@@ -62,7 +62,7 @@ export default {
 				break;
 			case '+':
 			case '-':
-			case '⨉':
+			case '×':
 			case '÷':
 				if (c === '-' && (this.lastChar === null || this.lastChar === '(')) {
 					canWrite = true;

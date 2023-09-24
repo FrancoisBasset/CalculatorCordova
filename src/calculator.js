@@ -36,13 +36,13 @@ export default class Calculator {
 			sub = sub.replace(/([\d])([-])([\d])/g, '$1$2 $3');
 		}
 
-		const matches = sub.match(/([-]?\d*\.?\d+)|([+\-⨉÷])/g);
+		const matches = sub.match(/([-]?\d*\.?\d+)|([+\-×÷])/g);
 
 		const operands = [];
 		const operators = [];
 
 		for (const match of matches) {
-			if ('-+⨉÷'.includes(match)) {
+			if ('-+×÷'.includes(match)) {
 				operators.push(match);
 			} else {
 				operands.push(parseFloat(match));
@@ -53,7 +53,7 @@ export default class Calculator {
 
 		while (i < operators.length) {
 			switch (operators[i]) {
-			case '⨉':
+			case '×':
 				operands[i] = operands[i] * operands[i + 1];
 				operands.splice(i + 1, 1);
 				operators.splice(i, 1);
@@ -80,7 +80,7 @@ export default class Calculator {
 			case '-':
 				result -= operands[0];
 				break;
-			case '⨉':
+			case '×':
 				result *= operands[0];
 				break;
 			case '÷':

@@ -17,7 +17,7 @@
 				<td @click="$emit('keyboard-click', '7')">7</td>
 				<td @click="$emit('keyboard-click', '8')">8</td>
 				<td @click="$emit('keyboard-click', '9')">9</td>
-				<td @click="$emit('keyboard-click', '⨉')" class="operator-button">⨉</td>
+				<td @click="$emit('keyboard-click', '×')" class="operator-button">×</td>
 			</tr>
 			<tr>
 				<td @click="$emit('keyboard-click', '4')">4</td>
