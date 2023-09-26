@@ -51,11 +51,11 @@ table {
 td {
 	text-align: center;
 	border: 1px solid lightgray;
-	font-size: 26px;
+	font-size: 46px;
 }
 
 td:active {
-	background-color: lightblue;
+	background-color: rgb(189, 235, 250);
 }
 </style>
 
